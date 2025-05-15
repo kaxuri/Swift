@@ -1,0 +1,316 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+
+    /* Brand colors */
+    --blue-400: 213 90% 65%;
+    --blue-500: 217 91% 60%;
+    --blue-600: 221 83% 53%;
+    --blue-700: 224 76% 48%;
+    --purple-400: 265 89% 78%;
+    --purple-500: 267 85% 71%;
+    --purple-600: 269 80% 64%;
+    --purple-700: 271 68% 56%;
+    --pink-400: 330 81% 76%;
+    --pink-500: 330 81% 60%;
+    --pink-600: 328 86% 54%;
+    --pink-700: 327 73% 46%;
+    --cyan-400: 190 90% 65%;
+    --cyan-500: 189 94% 43%;
+    --cyan-600: 188 86% 36%;
+    --cyan-700: 187 80% 31%;
+    --amber-400: 38 92% 65%;
+    --amber-500: 38 92% 50%;
+    --amber-600: 38 93% 42%;
+    --amber-700: 36 91% 36%;
+    --orange-400: 24 95% 65%;
+    --orange-500: 24 94% 50%;
+    --orange-600: 24 95% 42%;
+    --orange-700: 24 94% 36%;
+    --emerald-400: 152 76% 65%;
+    --emerald-500: 152 82% 39%;
+    --emerald-600: 153 85% 32%;
+    --emerald-700: 155 84% 28%;
+    --green-400: 142 76% 65%;
+    --green-500: 142 71% 45%;
+    --green-600: 142 69% 38%;
+    --green-700: 142 72% 29%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Custom styles for the new design */
+.glass-card {
+  background: rgba(15, 15, 15, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Glow effects */
+.glow-text-white {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.light .glow-text-white {
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.light .glow-text-blue {
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.light .glow-text-purple {
+  text-shadow: 0 0 15px rgba(139, 92, 246, 0.5), 0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+.shadow-glow-blue {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.shadow-glow-purple {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+.light .shadow-glow-blue {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.light .shadow-glow-purple {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+.light .shadow-glow-green {
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+}
+
+.light .shadow-glow-orange {
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+}
+
+.glow-filter {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.floating-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+  .glass-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .glow-text-white {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.staggered-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.staggered-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.staggered-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.staggered-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.staggered-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--blue-500), var(--purple-500));
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* For flashcards */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotateY-180 {
+  transform: rotateY(180deg);
+}
+
+.light .bg-gradient-to-br.from-neutral-950.to-neutral-900 {
+  background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+}
+
+.light .text-white {
+  color: #0f172a;
+}
+
+.light .text-neutral-300 {
+  color: #334155;
+}
+
+.light .text-neutral-400 {
+  color: #64748b;
+}
+
+.light .border-neutral-700,
+.light .border-neutral-800 {
+  border-color: #e2e8f0;
+}
+
+.light .bg-neutral-800\/50 {
+  background-color: rgba(241, 245, 249, 0.8);
+}
+
+.light .bg-neutral-900\/50 {
+  background-color: rgba(248, 250, 252, 0.8);
+}
+
+.light .hover\:bg-neutral-800:hover {
+  background-color: #e2e8f0;
+}
+
+.light .hover\:bg-neutral-700\/50:hover {
+  background-color: rgba(226, 232, 240, 0.8);
+}
